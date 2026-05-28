@@ -169,8 +169,9 @@ export default function StrangerThinkingPage() {
           className="mt-6 md:mt-8 max-w-xl text-[14px] md:text-[15px] leading-relaxed opacity-70"
           style={{ fontFamily: "var(--font-plex), sans-serif" }}
         >
-          A deck of provocations for when you&apos;re stuck. Drawn from Eno
-          &amp; Schmidt, then bent. Tap the card to draw another.
+          Stranger Thinking: Useful Distortions for Routine-Weary Minds. A deck
+          of provocations drawn from Eno&apos;s Oblique Strategies, then bent.
+          Tap the card to draw another.
         </p>
       </section>
 
