@@ -67,20 +67,24 @@ export default function StrangerThinkingPage() {
     const el = textRef.current;
     if (!card || !el) return;
 
-    const maxW = card.offsetWidth * 0.86;
-    const maxH = card.offsetHeight * 0.78;
+    // Use getBoundingClientRect so the padding-top % trick resolves correctly
+    const rect = card.getBoundingClientRect();
+    const maxW = rect.width * 0.82;
+    const maxH = rect.height * 0.78;
 
-    let size = Math.min(maxW / 3.2, maxH);
+    // Start from a generous size and shrink down
+    let size = Math.min(maxW / 2.5, maxH * 0.9, 160);
     el.style.fontSize = `${size}px`;
+    el.style.whiteSpace = "normal";
+    el.style.wordBreak = "break-word";
 
     let iter = 0;
-    while (
-      (el.scrollWidth > maxW || el.scrollHeight > maxH) &&
-      size > 10 &&
-      iter < 200
-    ) {
-      size -= 1;
+    while (iter < 300) {
+      const elRect = el.getBoundingClientRect();
+      if (elRect.width <= maxW && elRect.height <= maxH) break;
+      size = Math.max(size - 1, 10);
       el.style.fontSize = `${size}px`;
+      if (size <= 10) break;
       iter++;
     }
   }, []);
