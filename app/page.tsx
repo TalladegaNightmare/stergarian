@@ -23,6 +23,7 @@ export default function Home() {
           <div className="line" id="line2">IS A SIDE PROJECT</div>
           <div className="experiments">
             <a className="experiment-link" href="https://jot.stergarian.com" target="_blank" rel="noopener noreferrer">EXPERIMENT_1B_JOT</a> <a className="experiment-link" href="/strangerthinking">RESOURCE_1D_STRANGERTHINKING</a>
+<a className="experiment-link" href="/moatsandlevers">RESOURCE_2E_MOATS+LEVERS</a>
           </div>
         </div>
         <footer className="footer">
