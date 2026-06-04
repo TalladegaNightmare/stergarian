@@ -23,33 +23,28 @@ export default function Home() {
           <div className="line" id="line2">IS A SIDE PROJECT</div>
           <div className="experiments">
             <a className="experiment-link" href="https://jot.stergarian.com" target="_blank" rel="noopener noreferrer">EXPERIMENT_1B_JOT</a> <a className="experiment-link" href="/strangerthinking">RESOURCE_1D_STRANGERTHINKING</a>
-<a className="experiment-link" href="/moatsandlevers">RESOURCE_2E_MOATS+LEVERS</a>
+            <a className="experiment-link" href="/moatsandlevers">RESOURCE_2E_MOATS+LEVERS</a>
           </div>
         </div>
         <footer className="footer">
           <a href="https://www.linkedin.com/in/zstergar" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </footer>
       </div>
+      <img
+        src="/logo-s.png"
+        alt="Stergarian"
+        width={28}
+        height={28}
+        style={{
+          position: "fixed",
+          bottom: "1.5rem",
+          left: "1.5rem",
+          opacity: 0.15,
+          display: "block",
+          mixBlendMode: "multiply",
+        }}
+      />
       <script dangerouslySetInnerHTML={{ __html: `
         function matchWidths() {
           var l1 = document.getElementById('line1');
           var l2 = document.getElementById('line2');
-          var wrap = document.getElementById('headline-wrap');
-          if (!l1 || !l2 || !wrap) return;
-          var maxW = wrap.offsetWidth;
-          function fitToWidth(el, targetW) {
-            var size = 300;
-            el.style.fontSize = size + 'px';
-            while (el.scrollWidth > targetW && size > 10) { size--; el.style.fontSize = size + 'px'; }
-            return size;
-          }
-          fitToWidth(l1, maxW);
-          var l1Width = l1.scrollWidth;
-          fitToWidth(l2, l1Width);
-        }
-        matchWidths();
-        window.addEventListener('resize', matchWidths);
-      ` }} />
-    </>
-  );
-}
