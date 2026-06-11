@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -7,7 +8,11 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
 });
-
+const druk = localFont({
+  src: "../public/fonts/DrukCondensed-Super-Web.woff2",
+  variable: "--font-druk",
+  display: "swap",
+});
 export const metadata: Metadata = {
   title: "Stergarian",
   description: "A side project.",
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ibmPlexMono.variable} h-full antialiased`}
+      className={`${ibmPlexMono.variable} ${druk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}
