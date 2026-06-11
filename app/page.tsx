@@ -48,3 +48,22 @@ export default function Home() {
         function matchWidths() {
           var l1 = document.getElementById('line1');
           var l2 = document.getElementById('line2');
+          var wrap = document.getElementById('headline-wrap');
+          if (!l1 || !l2 || !wrap) return;
+          var w = wrap.offsetWidth;
+          [l1, l2].forEach(function(el) {
+            el.style.fontSize = '100px';
+            var scale = w / el.offsetWidth;
+            el.style.fontSize = (100 * scale) + 'px';
+          });
+        }
+        matchWidths();
+        window.addEventListener('resize', matchWidths);
+        window.addEventListener('load', matchWidths);
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(matchWidths);
+        }
+      ` }} />
+    </>
+  );
+}
